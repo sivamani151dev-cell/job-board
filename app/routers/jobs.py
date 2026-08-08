@@ -12,7 +12,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-router = APIRouter(prefix="/jobs", tags="Jobs")
+router = APIRouter(prefix="/jobs", tags=["Jobs"])
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 

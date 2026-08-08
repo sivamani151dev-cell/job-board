@@ -66,7 +66,7 @@ def update_company(
 ):
     company = db.query(Company).filter(Company.id == company_id, Company.owner_id == current_user.id).first()
     if not company:
-        raise HTTPException(status_code=404, detail="Compan y not found")
+        raise HTTPException(status_code=404, detail="Company not found")
     if company_update.name is not None:
         company.name = company_update.name
     if company_update.description is not None:
