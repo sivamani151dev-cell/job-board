@@ -17,7 +17,7 @@ class CompanyUpdate(BaseModel):
 class CompanyResponse(BaseModel):
     id: int
     name: str
-    descripttion: Optional[str]
+    description: Optional[str]
     website: Optional[str]
     location: Optional[str]
     created_at: datetime

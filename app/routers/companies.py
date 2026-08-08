@@ -29,7 +29,7 @@ def create_company(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
-    existing = db.query(User).filter(Company.name == company.name).first()
+    existing = db.query(Company).filter(Company.name == company.name).first()
     if existing:
         raise HTTPException(status_code=400, detail="Company name already exists")
     new_company = Company(
