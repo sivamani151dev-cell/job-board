@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from app.database import engine, Base
 from app.routers import auth, companies, jobs, applications
+from fastapi.responses import RedirectResponse
 import logging
 
 logging.basicConfig(
@@ -26,7 +27,4 @@ app.include_router(applications.router)
 @app.get("/")
 def root():
     logger.info("Root endpoint hit")
-    return {
-        "message": "Welcome to Job Board API! 💼",
-        "docs": "http://localhost:8000/docs"
-    }
+    return RedirectResponse(url="/docs")

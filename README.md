@@ -147,3 +147,25 @@ job-board/
 
 ## 🎯 Project Type
 Skill-Building Project — built to understand multi-table relationships, role-based access and complex filtering.
+
+## 📊 Database Schema
+
+![ER Diagram](docs/er_diagram.png)
+
+---
+
+## 📸 Screenshots
+
+### API Documentation
+![Swagger UI](docs/swagger_overview.png)
+
+---
+
+## 📬 Postman Collection
+
+Import `docs/job_board.postman_collection.json` into Postman to test all endpoints instantly!
+
+
+
+## 🌐 Live Demo
+*Deployment coming soon*

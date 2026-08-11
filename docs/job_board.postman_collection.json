@@ -1,0 +1,328 @@
+{
+  "info": {
+    "_postman_id": "1a5451a9-d325-424c-9985-b48a9ca5f488",
+    "name": "job_board",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57032145",
+    "_collection_link": "https://go.postman.co/collection/57032145-1a5451a9-d325-424c-9985-b48a9ca5f488?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "auth/register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"sanju2@gmail.com\",\r\n    \"username\": \"sanjay\",\r\n    \"password\": \"test1234\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/auth/register",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "auth/login?",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/auth/login?username=sanjay&password=test1234",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "auth",
+            "login"
+          ],
+          "query": [
+            {
+              "key": "username",
+              "value": "sanjay"
+            },
+            {
+              "key": "password",
+              "value": "test1234"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create company",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"techcorpin India\",\r\n    \"description\": \"A leading Tech Company\",\r\n    \"website\": \"https://techcorpin.in\",\r\n    \"location\": \"Bangalore\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/companies/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "companies",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post a job",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Python Backend Developer\",\r\n    \"description\": \"We need a skilled Python Developer\",\r\n    \"requirements\": \"FastAPI, PostgreSQL, Docker\",\r\n    \"salary_min\":60000,\r\n    \"salary_max\":100000,\r\n    \"location\": \"Bangalore\",\r\n    \"job_type\": \"full_time\",\r\n    \"company_id\": 3\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/jobs/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "jobs",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all jobs",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/jobs/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "jobs",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "search jobs",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Python Backend Developer\",\r\n    \"description\": \"We need a skilled Python Developer\",\r\n    \"requirements\": \"FastAPI, PostgreSQL, Docker\",\r\n    \"salary_min\":60000,\r\n    \"salary_max\":100000,\r\n    \"location\": \"Bangalore\",\r\n    \"job_type\": \"full_time\",\r\n    \"company_id\": 3\r\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/jobs/?keyword=Python",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "jobs",
+            ""
+          ],
+          "query": [
+            {
+              "key": "keyword",
+              "value": "Python"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "apply to job",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"cover_letter\": \"I am very interested in this position. I have 3 years of Python and FastAPI with Docker experience.\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/applications/1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "applications",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get my applications",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/applications/my",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "applications",
+            "my"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Application Status",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"status\": \"accepted\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/applications/1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "applications",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
